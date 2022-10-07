@@ -32,7 +32,10 @@ document.getElementById("addTask").addEventListener('click', () => {
 
     row++
 })
-// list.querySelectorAll(".list-group-item").forEach(item => {
-//     console.log('yo', item)
-//     item.addEventListener('click', deleteTask)
-// })
+list.querySelectorAll(".list-group-item").forEach(item => {
+    console.log('yo', item)
+    item.addEventListener('click', myAlert)
+})
+function myAlert() {
+    alert('You clicked on a task!\n\nGO DO IT NOW!')
+}

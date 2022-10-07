@@ -14,7 +14,7 @@ function createWindow() {
 
   // win.setTitle('My App');
   win.loadFile('index.html');
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
