@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Nuss93/electron-tasklist-app#readme",
   "devDependencies": {
     "electron": "^21.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2"
   }
 }

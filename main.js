@@ -2,19 +2,19 @@ const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
   const win = new BrowserWindow({
-    height: 600,
-    width: 800,
-    // webPreferences: {
-    //   nodeIntegration: true,
+    height: 800,
+    width: 1100,
+    webPreferences: {
+      nodeIntegration: true,
     //   enableRemoteModule: true
-    // },
+    },
     // icon: path.join(__dirname, 'assets', 'img', 'icon.png'),
     // title: 'My App',
   });
 
   // win.setTitle('My App');
   win.loadFile('index.html');
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {

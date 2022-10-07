@@ -12,10 +12,26 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Hello from Electron renderer!</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <script src="script.js" defer></script>
+    <title>GYST App</title>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <h1>Get Your Shit Together</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul id="list" class="list-group">
+          </ul>
+        </div>
+        <div class="col-md-6">
+            <input type="text" id="newTask" class="form-control" placeholder="Enter New Task" />
+            <br/>
+            <button id="addTask" class="btn btn-primary">Add Task</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
