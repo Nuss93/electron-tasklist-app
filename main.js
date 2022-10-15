@@ -1,20 +1,29 @@
+'use strict';
+
 const { app, BrowserWindow } = require('electron');
+const electronReload = require('electron-reload')
 
 function createWindow() {
   const win = new BrowserWindow({
     height: 800,
-    width: 1100,
+    width: 1200,
     webPreferences: {
       nodeIntegration: true,
     //   enableRemoteModule: true
     },
+    
     // icon: path.join(__dirname, 'assets', 'img', 'icon.png'),
     // title: 'My App',
   });
 
   // win.setTitle('My App');
   win.loadFile('index.html');
-  // win.webContents.openDevTools();
+  // win.loadURL(url.format ({ 
+  //   pathname: path.join(__dirname, 'index.html'), 
+  //   protocol: 'file:', 
+  //   slashes: true 
+  // })) 
+  win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
