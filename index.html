@@ -20,17 +20,24 @@
     <title>GYST App</title>
   </head>
   <body>
-    <h1 class="text-center pt-5 pb-4">aaa! Get Your Shit Together</h1>
-    <div class="container">
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <img src="./assets/img/to-do-list.png" class="app-logo" />
+      <h1 class="text-center pt-5 pb-4">Get Your Shit Together</h1>
+    </div>
+    <div class="container pt-3">
       <div class="row">
         <div class="col-md-6">
-          <ul id="list" class="list-group">
-          </ul>
+          <ul id="list" class="list-group todo-list"></ul>
+          <!-- Empty state -->
+          <div class="empty-state">
+            <h2 class="empty-state__title">Add your first todo</h2>
+            <img src="./assets/img/kitty.png" class="empty-state__image"/>
+            <p class="empty-state__description">Hey you! Yeah you! I know you're just sitting on your ass procrastinating what you were meant to do. Well what are you waiting for? Get off your ass and GET YOUR SHIT TOGETHER! </p>
+          </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex align-items-end justify-content-start flex-column">
             <input type="text" id="newTask" class="form-control" placeholder="Enter New Task" />
-            <br/>
-            <button id="addTask" class="btn btn-warning">Add Task</button>
+            <button id="addTask" class="btn btn-warning mt-3">Add Task</button>
         </div>
       </div>
     </div>
