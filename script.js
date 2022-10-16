@@ -89,5 +89,9 @@ list.addEventListener('click', event => {
 });
 
 document.addEventListener('keypress', event => {
-    console.log(event)
+    if(event.key === "Enter") {
+        addTodo(newTask.value)
+        newTask.value = "";
+        newTask.focus();
+    }
 })
