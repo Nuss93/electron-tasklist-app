@@ -35,6 +35,9 @@ function addTodo(text, index) {
 function toggleDone(key) {
     const index = todoItems.findIndex(item => item.id === Number(key))
     todoItems[index].checked = !todoItems[index].checked
+
+    window.localStorage.setItem('data', JSON.stringify(todoItems))
+
     renderTodo(todoItems[index])
 }
 function deleteTask(key) {
