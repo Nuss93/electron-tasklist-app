@@ -6,7 +6,7 @@ const electronReload = require('electron-reload')
 function createWindow() {
   const win = new BrowserWindow({
     height: 800,
-    width: 1200,
+    width: 800,
     webPreferences: {
       nodeIntegration: true,
     //   enableRemoteModule: true

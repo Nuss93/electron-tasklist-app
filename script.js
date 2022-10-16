@@ -2,11 +2,19 @@ let newTask = document.getElementById("newTask")
 let list = document.getElementById("list")
 let todoItems = [];
 // const array = ['Wake up', 'Go to the gym', 'Cook lunch']
-const array = []
+var array = []
+
+function getTodos () {
+    const data = JSON.parse(window.localStorage.getItem('data')) || []
+    console.log(data)
+    array = data;
+}
+getTodos()
 
 array.forEach((item, index) => {
-    console.log(item, index)
-	addTodo(item, index)
+    console.log('a', item, index)
+    todoItems.push(item)
+	renderTodo(item)
 })
 
 // function that adds a task into the todoItems array
@@ -18,6 +26,10 @@ function addTodo(text, index) {
     };
     todoItems.push(todo)
     // console.log(todoItems)
+    const currentTodos = JSON.parse(window.localStorage.getItem('data')) || []
+    const updateTodos = [...currentTodos, todo]
+    window.localStorage.setItem('data', JSON.stringify(updateTodos))
+    
     renderTodo(todo)
 }
 function toggleDone(key) {
@@ -35,6 +47,10 @@ function deleteTask(key) {
 
     todoItems = todoItems.filter(item => item.id !== Number(key));
     console.log(todo, index, todoItems)
+
+    const updateTodos = todoItems
+    window.localStorage.setItem('data', JSON.stringify(updateTodos))
+
     renderTodo(todo)
 }
 
@@ -78,7 +94,7 @@ function renderTodo(todo) {
 list.addEventListener('click', event => {
   if (event.target.classList.contains('js-tick')) {
     const itemKey = event.target.dataset.key
-    console.log(itemKey)
+    console.log(itemKey, event.target.dataset)
     toggleDone(itemKey);
   }
   if (event.target.classList.contains('js-delete-todo')) {
