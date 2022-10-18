@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path')
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 
 const DataStore = require('./DataStore');
 
@@ -22,13 +22,14 @@ function createWindow() {
   win.webContents.openDevTools();
 
   win.once('show', () => {
-    win.webContents.send('todos', todosData.todos)
-    console.log('aaa', win.send('todos', todosData.todos))
+    // win.webContents.send('todos', todosData.todos)
+    ipcRenderer.send('get-todos')
+    console.log('aaa', win.webContents)
   })
 
   ipcMain.on('get-todos', (event, todo) => {
     const todos = todosData.getTodos()
-    console.log('here', new Date().getTime(), todos)
+    // console.log('here', new Date().getTime(), todos)
   })
 
   ipcMain.on('add-todos', (event, todo) => {
@@ -53,13 +54,13 @@ function createWindow() {
 // })
 
 app.on('ready', () =>{
-  console.log('===============================')
-  console.log('ready', new Date().toLocaleTimeString())
-  console.log('===============================')
+  // console.log('===============================')
+  // console.log('ready', new Date().toLocaleTimeString())
+  // console.log('===============================')
   
-  const getTodos = todosData.getTodos()
-  console.log('getData', new Date().toTimeString(), getTodos.todos)
-  console.log('===============================')
+  // const getTodos = todosData.getTodos()
+  // console.log('getData', new Date().toTimeString(), getTodos.todos)
+  // console.log('===============================')
 
   // ipcr.send('todos', todosData.todos)
   createWindow()
