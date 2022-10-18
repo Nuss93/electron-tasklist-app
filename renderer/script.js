@@ -1,3 +1,7 @@
+'use strict'
+
+const { ipcRenderer } = require("electron");
+
 let newTask = document.getElementById("newTask")
 let list = document.getElementById("list")
 let todoItems = [];
@@ -5,9 +9,11 @@ let todoItems = [];
 var array = []
 
 function getTodos () {
-    const data = JSON.parse(window.localStorage.getItem('data')) || []
-    console.log(data)
-    array = data;
+    // console.log(todosData)
+    const data = ipcRenderer.send('get-todos')
+    // const data = JSON.parse(window.localStorage.getItem('data')) || []
+    console.log('fuxkkkk', new Date().getTime(), ipcRenderer.send('get-todos'))
+    // array = data;
 }
 getTodos()
 
@@ -58,11 +64,11 @@ function deleteTask(key) {
 }
 
 // event listener that listens when user clicks on button
-document.getElementById('addTask').addEventListener('click', e => {
-    addTodo(newTask.value)
-    newTask.value = "";
-    newTask.focus();
-})
+// document.getElementById('addTask').addEventListener('click', e => {
+//     addTodo(newTask.value)
+//     newTask.value = "";
+//     newTask.focus();
+// })
 
 function renderTodo(todo) {
     // select the current todo item in the DOM
